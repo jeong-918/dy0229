@@ -1,0 +1,669 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>우송대학교 작업치료학과 면접 준비 허브 | 박도영</title>
+<style>
+  :root{
+    --main:#1e7d6b; --main-d:#155e51; --accent:#ff9f43; --bg:#f4f9f8;
+    --card:#ffffff; --text:#233; --muted:#6b7b78; --danger:#e0554f;
+  }
+  *{box-sizing:border-box;}
+  body{margin:0;font-family:'Apple SD Gothic Neo','Malgun Gothic','Noto Sans KR',sans-serif;background:var(--bg);color:var(--text);line-height:1.6;}
+  header{background:linear-gradient(135deg,var(--main-d),var(--main));color:#fff;padding:28px 20px;text-align:center;position:relative;}
+  header h1{margin:0 0 6px;font-size:1.6rem;}
+  header p{margin:0;opacity:.9;font-size:.95rem;}
+  .badge{display:inline-block;background:rgba(255,255,255,.18);padding:4px 12px;border-radius:20px;font-size:.8rem;margin-top:10px;}
+  nav{display:flex;flex-wrap:wrap;justify-content:center;gap:6px;background:var(--main-d);padding:8px;position:sticky;top:0;z-index:50;}
+  nav button{background:transparent;border:none;color:#e8f5f2;padding:10px 14px;border-radius:8px;cursor:pointer;font-size:.9rem;font-weight:600;transition:.2s;white-space:nowrap;}
+  nav button:hover{background:rgba(255,255,255,.15);}
+  nav button.active{background:#fff;color:var(--main-d);}
+  main{max-width:960px;margin:0 auto;padding:20px 16px 60px;}
+  .tab{display:none;animation:fade .3s;}
+  .tab.active{display:block;}
+  @keyframes fade{from{opacity:0;transform:translateY(6px);}to{opacity:1;transform:translateY(0);}}
+  .card{background:var(--card);border-radius:14px;padding:20px;margin-bottom:18px;box-shadow:0 2px 10px rgba(0,0,0,.06);}
+  h2.section-title{color:var(--main-d);border-left:5px solid var(--accent);padding-left:10px;margin-top:0;}
+  h3{color:var(--main-d);}
+  .grid2{display:grid;grid-template-columns:1fr 1fr;gap:16px;}
+  @media(max-width:700px){.grid2{grid-template-columns:1fr;}}
+  .acc{border:1px solid #dfe9e6;border-radius:10px;margin-bottom:10px;overflow:hidden;}
+  .acc-h{background:#eef6f4;padding:12px 16px;cursor:pointer;font-weight:700;display:flex;justify-content:space-between;align-items:center;color:var(--main-d);}
+  .acc-b{padding:0 16px;max-height:0;overflow:hidden;transition:max-height .3s ease;background:#fff;}
+  .acc.open .acc-b{max-height:2000px;padding:12px 16px;}
+  .acc-h .arrow{transition:.3s;}
+  .acc.open .arrow{transform:rotate(180deg);}
+  ul{padding-left:20px;}
+  li{margin-bottom:6px;}
+  .tag{display:inline-block;background:var(--main);color:#fff;font-size:.72rem;padding:3px 9px;border-radius:12px;margin-right:6px;margin-bottom:6px;}
+  .tag.o{background:var(--accent);}
+  .tag.r{background:var(--danger);}
+  .flashcard{background:linear-gradient(145deg,#fff,#eef6f4);border:2px solid var(--main);border-radius:16px;padding:26px;text-align:center;cursor:pointer;min-height:150px;display:flex;align-items:center;justify-content:center;font-size:1.05rem;font-weight:600;transition:.25s;}
+  .flashcard:hover{box-shadow:0 4px 16px rgba(30,125,107,.25);}
+  .flash-hint{text-align:center;color:var(--muted);font-size:.85rem;margin-top:8px;}
+  .btn{background:var(--main);color:#fff;border:none;padding:10px 18px;border-radius:8px;cursor:pointer;font-weight:700;font-size:.9rem;transition:.2s;}
+  .btn:hover{background:var(--main-d);}
+  .btn.secondary{background:#eee;color:#333;}
+  .btn.accent{background:var(--accent);}
+  .btn-row{display:flex;gap:10px;flex-wrap:wrap;margin-top:14px;}
+  select{padding:8px 10px;border-radius:8px;border:1px solid #ccc;font-size:.9rem;}
+  .qbox{background:#fbfbf8;border:1.5px dashed var(--main);border-radius:12px;padding:22px;margin-top:16px;min-height:110px;}
+  .qbox .qnum{color:var(--muted);font-size:.8rem;}
+  .qbox .qtext{font-size:1.15rem;font-weight:700;color:var(--main-d);margin:8px 0;}
+  .qbox .qtip{font-size:.9rem;color:var(--muted);margin-top:10px;border-top:1px dashed #ccc;padding-top:8px;display:none;}
+  .video-grid{display:grid;grid-template-columns:1fr 1fr;gap:16px;}
+  @media(max-width:700px){.video-grid{grid-template-columns:1fr;}}
+  .video-grid iframe{width:100%;aspect-ratio:16/9;border-radius:10px;border:none;}
+  .video-cap{font-size:.85rem;color:var(--muted);margin-top:6px;text-align:center;}
+  .check-item{display:flex;align-items:flex-start;gap:8px;padding:8px 0;border-bottom:1px solid #eee;}
+  .check-item input{margin-top:3px;}
+  .progress-wrap{background:#e3ece9;border-radius:8px;height:14px;overflow:hidden;margin:10px 0;}
+  .progress-bar{background:var(--accent);height:100%;width:0%;transition:.3s;}
+  footer{text-align:center;color:var(--muted);font-size:.8rem;padding:20px;}
+  .home-hero{display:grid;grid-template-columns:1.2fr 1fr;gap:18px;}
+  @media(max-width:700px){.home-hero{grid-template-columns:1fr;}}
+  .stat{text-align:center;background:#fff;border-radius:12px;padding:14px 8px;box-shadow:0 2px 8px rgba(0,0,0,.05);}
+  .stat b{font-size:1.4rem;color:var(--main-d);display:block;}
+  .statgrid{display:grid;grid-template-columns:repeat(4,1fr);gap:10px;margin-top:14px;}
+  @media(max-width:700px){.statgrid{grid-template-columns:repeat(2,1fr);}}
+  .prep-box{border:1px solid #dfe9e6;border-radius:10px;padding:14px;margin-bottom:10px;}
+  .prep-box textarea{width:100%;min-height:70px;border:1px solid #ccc;border-radius:8px;padding:8px;font-family:inherit;font-size:.9rem;resize:vertical;}
+  .prep-box label{font-weight:700;color:var(--main-d);display:block;margin-bottom:6px;}
+  .note{background:#fff7e6;border:1px solid #ffe0a3;border-radius:10px;padding:12px 16px;font-size:.9rem;color:#7a5a00;}
+</style>
+
+<style id="lockStyle">
+  #lockOverlay{position:fixed;inset:0;background:linear-gradient(135deg,#155e51,#1e7d6b);
+    display:flex;align-items:center;justify-content:center;z-index:9999;padding:20px;}
+  #lockBox{background:#fff;border-radius:16px;padding:32px 28px;max-width:340px;width:100%;
+    box-shadow:0 10px 30px rgba(0,0,0,.25);text-align:center;}
+  #lockBox h2{margin:0 0 8px;color:#155e51;font-size:1.2rem;}
+  #lockBox p{margin:0 0 18px;color:#6b7b78;font-size:.88rem;}
+  #lockBox input{width:100%;padding:12px;font-size:1.1rem;text-align:center;letter-spacing:4px;
+    border:2px solid #dfe9e6;border-radius:10px;margin-bottom:12px;box-sizing:border-box;}
+  #lockBox input:focus{outline:none;border-color:#1e7d6b;}
+  #lockBox button{width:100%;padding:12px;font-size:1rem;font-weight:700;color:#fff;
+    background:#1e7d6b;border:none;border-radius:10px;cursor:pointer;transition:.2s;}
+  #lockBox button:hover{background:#155e51;}
+  #lockError{color:#e0554f;font-size:.85rem;margin-top:10px;min-height:1.2em;}
+  body.locked > *:not(#lockOverlay){display:none !important;}
+</style>
+</head>
+<body class="locked">
+<div id="lockOverlay">
+  <div id="lockBox">
+    <h2>🔒 접속 비밀번호</h2>
+    <p>이 면접 준비 허브는 비밀번호가 필요합니다.<br>비밀번호를 입력해주세요.</p>
+    <input type="password" id="lockInput" inputmode="numeric" maxlength="10" placeholder="••••" autocomplete="off">
+    <button id="lockSubmit">입장하기</button>
+    <div id="lockError"></div>
+  </div>
+</div>
+
+
+<header>
+  <h1>🩺 우송대학교 작업치료학과 면접 준비 허브</h1>
+  <p>박도영 학생을 위한 맞춤형 면접 학습 · 연습 플랫폼</p>
+  <span class="badge">면접 처음이어도 괜찮아요 — 기초부터 실전까지 한 곳에서!</span>
+</header>
+
+<nav id="nav">
+  <button data-tab="home" class="active">🏠 홈</button>
+  <button data-tab="basics">📘 면접 기초</button>
+  <button data-tab="dept">🏥 학과 이해</button>
+  <button data-tab="bank">🎯 면접 문제 뱅크</button>
+  <button data-tab="videos">🎬 연습 영상</button>
+  <button data-tab="checklist">✅ 체크리스트</button>
+</nav>
+
+<main>
+
+<!-- ============ HOME ============ -->
+<section class="tab active" id="home">
+  <div class="card home-hero">
+    <div>
+      <h2 class="section-title">시작하기 전에</h2>
+      <p>면접을 한 번도 해본 적이 없어도 괜찮습니다. 이 허브는 <b>① 면접이 무엇인지 이해 → ② 작업치료학과를 이해 → ③ 실전 문제로 연습 → ④ 영상으로 본보기 확인</b> 순서로 설계되어 있습니다.</p>
+      <p>매번 접속할 때마다 아래 <b>학과 이해 플래시카드</b>를 먼저 한 장씩 넘겨보는 습관을 들이면, 어느 순간 학과에 대한 이해가 자연스럽게 쌓입니다.</p>
+      <div class="btn-row">
+        <button class="btn" onclick="goTab('basics')">면접 기초부터 보기</button>
+        <button class="btn accent" onclick="goTab('bank')">바로 문제 뽑아보기</button>
+      </div>
+    </div>
+    <div>
+      <h3 style="margin-top:0;">오늘의 학과 이해 플래시카드</h3>
+      <div class="flashcard" id="homeFlash" onclick="flipHomeCard()">카드를 클릭해서 확인하세요</div>
+      <div class="flash-hint">클릭하면 앞/뒤 내용이 전환됩니다 · 새로고침하면 새로운 카드가 나옵니다</div>
+    </div>
+  </div>
+
+  <div class="card">
+    <h2 class="section-title">우송대 작업치료학과, 숫자로 보기</h2>
+    <div class="statgrid">
+      <div class="stat"><b>2001</b>학과 신설연도</div>
+      <div class="stat"><b>WFOT</b>2023~2029 최장기 재인증</div>
+      <div class="stat"><b>41개</b>협력 상급종합·대학병원</div>
+      <div class="stat"><b>78%</b>졸업생 의료기관 취업 비율</div>
+    </div>
+    <p style="margin-top:14px;font-size:.9rem;color:var(--muted);">자료: 우송대학교 작업치료학과 학과소개 자료, WFOT 인증 현황 [출처: 학과소개/작업치료학과 소개.pdf, 우송대작업치료학과_guide.md]</p>
+  </div>
+
+  <div class="card note">
+    💡 <b>Tip.</b> 면접 실질 반영 비율은 전형에 따라 20~40%에 달합니다. 내신 격차를 극복할 수 있는 핵심 기회이니, "작업치료에 관심이 많다" 같은 선언적 답변보다 <b>구체적 계기 + 실제 경험</b>이 연결된 답변을 준비하세요.
+  </div>
+</section>
+
+<!-- ============ BASICS ============ -->
+<section class="tab" id="basics">
+  <div class="card">
+    <h2 class="section-title">1. 면접이란? — 우송대 면접의 3대 핵심 포인트</h2>
+    <div class="grid2">
+      <div class="acc-b" style="max-height:none;padding:0;">
+        <p><b>열정 (Passion)</b> · <b>인성 (Character)</b> · <b>적극성 (Positiveness)</b> — 이 세 가지가 우송대학교가 평가하는 핵심 축입니다.</p>
+        <ul>
+          <li>면접관은 교수진이며, "관심이 많다"는 선언보다 <b>계기(원인) → 고교 활동(결과)</b>가 인과적으로 연결된 답변을 높게 평가합니다.</li>
+          <li>면접 반영비율이 높아 내신 격차를 뒤집을 수 있는 기회입니다.</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+
+  <div class="card">
+    <h2 class="section-title">2. 면접 방법 이해하기 (단계별 아코디언)</h2>
+
+    <div class="acc">
+      <div class="acc-h" onclick="toggleAcc(this)">① 면접 당일 태도 & 복장 <span class="arrow">▾</span></div>
+      <div class="acc-b">
+        <ul>
+          <li><b>복장</b>:정해진 옷차림은 없으나, 학생으로서 단정한 옷차림(예: 흰색 셔츠/니트 + 어두운 톤 슬랙스 등). 과한 장신구/화장은 안됨.</li>
+          <li><b>도착</b>: 면접 시작 최소 30분 전 도착, 수험표·신분증 지참, 전자기기는 전원을 끄고 제출.</li>
+          <li><b>입장</b>: 문을 2~3회 노크 → 목례 → 안내받은 자리로 이동.</li>
+          <li><b>앉은 자세</b>: 허리를 펴고 시선은 정면, 손은 무릎 위에 자연스럽게, 다리는 모음.</li>
+          <li><b>표정</b>: 입꼬리를 살짝 올려 긍정적 인상 유지.</li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="acc">
+      <div class="acc-h" onclick="toggleAcc(this)">② 목소리 · 시선 · 말투 <span class="arrow">▾</span></div>
+      <div class="acc-b">
+        <ul>
+          <li><b>'솔' 톤 발성</b>: 도레미파솔 중 '솔' 톤으로 명랑하고 당당하게 말하기.</li>
+          <li><b>끝맺음 분명히</b>: 답이 틀릴 수 있더라도 말의 종결은 "~입니다", "~했습니다"로 문장을 명확히 종결.</li>
+          <li><b>시선 처리</b>: 면접관과 눈을 맞추되, 부담스럽다면 미간·인중 사이를 바라보기.</li>
+          <li><b>어조</b>: 문장 전체 암기가 아닌 <b>핵심 키워드 중심</b>으로 자연스럽게 대화하듯 답변.</li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="acc">
+      <div class="acc-h" onclick="toggleAcc(this)">③ 답변 구성 전략 — 두괄식 답변(PREP 기법) <span class="arrow">▾</span></div>
+      <div class="acc-b">
+        <ul>
+          <li><b>Point</b> (결론) — 질문에 대한 직접적 답변 제시</li>
+          <li><b>Reason</b> (이유) — 결론에 도달한 구체적 동기·배경</li>
+          <li><b>Example</b> (경험 또는 예시) — 고등학교 생활 중 경험한 내용을 사례 예시로 (학급, 동아리, 탐구 경험 등)</li>
+          <li><b>Point</b> (강조) — 배운 점을 입학 후 어떻게 적용할지 강조</li>
+        </ul>
+        <p>아래 <b>PREP 연습장</b>에 직접 작성해보세요. (브라우저에 자동 저장됩니다)</p>
+        <div class="prep-box">
+          <label>Point (결론)</label><textarea id="prepP" placeholder="예: 저는 작업치료학과에 지원한 이유가 명확합니다..."></textarea>
+        </div>
+        <div class="prep-box">
+          <label>Reason (이유)</label><textarea id="prepR" placeholder="예: 왜냐하면 고등학교 때..."></textarea>
+        </div>
+        <div class="prep-box">
+          <label>Example (경험)</label><textarea id="prepE" placeholder="예: 실제로 저는 봉사활동에서..."></textarea>
+        </div>
+        <div class="prep-box">
+          <label>Point (강조/포부)</label><textarea id="prepP2" placeholder="예: 이 경험을 바탕으로 우송대에서는..."></textarea>
+        </div>
+        <button class="btn" onclick="savePrep()">저장하기</button>
+        <button class="btn secondary" onclick="clearPrep()">초기화</button>
+        <p id="prepSaved" style="color:var(--main-d);font-weight:700;display:none;">✔ 저장되었습니다.</p>
+      </div>
+    </div>
+
+    <div class="acc">
+      <div class="acc-h" onclick="toggleAcc(this)">④ 돌발 상황 대처법 <span class="arrow">▾</span></div>
+      <div class="acc-b">
+        <ul>
+          <li><b>질문을 못 들었을 때</b>: "죄송합니다. 제가 긴장하여 잘 듣지 못했습니다. 질문을 다시 한번 말씀해 주실 수 있겠습니까?"</li>
+          <li><b>모르는 질문을 받았을 때</b>: 거짓으로 지어내지 말고, "잠시 생각할 시간을 주시겠습니까?" 또는 "아직 깊이 파악하지 못했습니다. 입학 후 학과 수업을 더 열심히 공부하겠습니다."라고 솔직하게 답하기.</li>
+          <li><b>마지막 하고 싶은 말</b>: 부족했던 답변을 보완하거나, 비유적 표현을 활용해 이 학과에 입학하고싶다는 열정을 인상 깊게 전달하기.</li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="acc">
+      <div class="acc-h" onclick="toggleAcc(this)">⑤ 실전 연습 방법 (대치/목동의 입시컨설팅 학원에서 실제 면접 수업 때 제시하는 방식) <span class="arrow">▾</span></div>
+      <div class="acc-b">
+        <ol>
+          <li><b>학과 이해/분석</b>: 학과 특징 및 인재상, 수업내용(커리큘럼), 학과 이해 질문(이 사이트 허브의 '학과 이해' 탭 활용)</li>
+          <li><b>키워드 스크립트 작성</b>: 통암기 하지말것. 차라리 핵심 키워드 정리 + "왜?" 꼬리질문 3단계 자가 도출</li>
+          <li><b>시각·음성 피드백</b>: 스마트폰으로 전체 모습을 녹화 : 표정, 어조, 습관어(어, 음 등) 점검 + 매 순간 답변을 녹음 : 말투, 설명 방식을 꾸준히 점검 및 보완하기</li>
+          <li><b>실전 모의면접</b>: 면접은 진짜 연습만으로 바뀜 → 하루 15분씩 실전 면접 연습 (문제지 미리 제시해보고 진행 + 녹음 후 들어보기) </li>
+	<li><b>결국은 자신감</b>:  "내가 작업치료학과 교수님이면 나를 뽑을까?"로 평가해보기 + "어차피 나랑 비슷한 애들이 온다. 뛰어난 애들 만날일 없음!!"</li>
+
+        </ol>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ DEPARTMENT ============ -->
+<section class="tab" id="dept">
+  <div class="card">
+    <h2 class="section-title">작업치료학과 이해 플래시카드</h2>
+    <p>카드를 클릭하면 답이 보입니다. '다음 카드' 버튼으로 계속 넘겨보며 학과 지식을 익히세요.</p>
+    <div class="flashcard" id="deptFlash" onclick="flipDeptCard()">카드를 클릭하세요</div>
+    <div class="btn-row">
+      <button class="btn" onclick="nextDeptCard()">다음 카드 ▶</button>
+      <button class="btn secondary" onclick="shuffleDeptCard()">🔀 랜덤으로 보기</button>
+    </div>
+    <p class="flash-hint" id="deptProgress"></p>
+  </div>
+
+  <div class="card">
+    <h2 class="section-title">핵심 지식 요약</h2>
+    <div class="acc">
+      <div class="acc-h" onclick="toggleAcc(this)">작업치료란 무엇인가? <span class="arrow">▾</span></div>
+      <div class="acc-b">
+        <p>신체적·정신적·발달적 장애나 손상으로 일상에 어려움을 겪는 대상자에게 의미 있는 '작업(Occupation)'을 매개로 능동적 참여를 유도하는 보건의료 학문입니다. 목표는 손상 회복 자체가 아니라 <b>독립적인 일상생활활동(ADL)</b>과 사회적 역할 복귀입니다.</p>
+      </div>
+    </div>
+    <div class="acc">
+      <div class="acc-h" onclick="toggleAcc(this)">작업치료(OT) vs 물리치료(PT) — 면접 핵심 질문 <span class="arrow">▾</span></div>
+      <div class="acc-b">
+        <ul>
+          <li><b>물리치료</b>: 관절 가동성, 근력, 통증 완화, 보행 등 기본 신체 운동기능 회복 중심</li>
+          <li><b>작업치료</b>: 상지 미세 손기능, 인지·지각 재활, 삼킴장애(연하재활), 일상생활 동작 훈련, 보조공학, 주거환경 개조 등을 통해 <b>'삶의 독립성과 작업 수행'</b>을 회복</li>
+        </ul>
+      </div>
+    </div>
+    <div class="acc">
+      <div class="acc-h" onclick="toggleAcc(this)">우송대만의 차별점 <span class="arrow">▾</span></div>
+      <div class="acc-b">
+        <ul>
+          <li><b>WFOT 최장기 재인증 (2023–2029)</b>: 2008년 최초 인증 이후 국제 표준 유지 → 해외 학위·교육과정 동등 인정</li>
+          <li><b>USC(미국 서던캘리포니아대) 연계</b>: WFOT 인증 기반으로 미국 대학원 석사 직행 가능 — 대표 사례: 최고은 졸업생(16학번), 美 면허 취득 후 캘리포니아 요양시설 취업</li>
+          <li><b>사회복지사 융합 트랙(18학점)</b>, <b>감각발달재활사 자격과정 내재화</b></li>
+          <li><b>솔파란 아동연구소(2002년 설립)</b>, <b>Sol-Hospital(모의병원)</b>, <b>ADL실(일상생활동작실)</b></li>
+          <li><b>전국 41개 상급종합·대학병원 실습망</b>: 서울아산병원, 세브란스병원, 삼성서울병원, 분당서울대병원, 국립재활원 등</li>
+          <li>국가고시 전국 수석 배출 및 매년 높은 합격률 유지</li>
+        </ul>
+      </div>
+    </div>
+    <div class="acc">
+      <div class="acc-h" onclick="toggleAcc(this)">교육과정 한눈에 보기 (학년별) <span class="arrow">▾</span></div>
+      <div class="acc-b">
+        <ul>
+          <li><b>1학년</b>: 작업치료학개론, 해부학, 의학용어, 생리학, 아동발달</li>
+          <li><b>2학년</b>: 일상생활활동, 활동분석, 직업재활, 기능해부학, 신경해부학, 아동검사및평가, 운동재활, 작업치료평가및이학적검사</li>
+          <li><b>3학년</b>: 신경과학, 아동의 활동과 중재, 연하장애와 인지재활, 정신건강임상학, 근골격계작업치료학, 감각처리장애와 중재, 연구방법론, 정신사회작업치료학, 보조공학, 신경계작업치료</li>
+          <li><b>4학년</b>: 감각재활현장실습, 지역사회작업치료학임상실습, 작업치료학임상실습1~4, 졸업과제연구, 공중보건학, 장애관련법규및윤리</li>
+        </ul>
+      </div>
+    </div>
+    <div class="acc">
+      <div class="acc-h" onclick="toggleAcc(this)">취득 가능 자격증 & 진로 <span class="arrow">▾</span></div>
+      <div class="acc-b">
+        <ul>
+          <li><b>국가면허</b>: 작업치료사 면허증</li>
+          <li><b>기타 자격</b>: 감각발달재활사, 사회복지사 2급(트랙), 보조공학사, 인간공학기사, 정신건강전문요원 등</li>
+          <li><b>진로</b>: 대학·재활·요양병원, 건강보험공단·국립재활원 등 공공기관, 아동발달센터, 치매안심센터, 특수학교, 해외 취업(미국·캐나다·호주·일본) 등</li>
+          <li>졸업생 의료기관 취업 비율 78%, 최근 3개년 취업률이 전국/사립 평균을 상회</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ QUESTION BANK ============ -->
+<section class="tab" id="bank">
+  <div class="card">
+    <h2 class="section-title">면접 문제 랜덤 뽑기</h2>
+    <p>카테고리를 선택하고 <b>문제 뽑기</b>를 눌러보세요. 우송대학교 수시면접 기출·예상문제와 작업치료학과 특화 예상문제를 기반으로 구성했습니다.</p>
+    <div class="btn-row">
+      <select id="catSelect">
+        <option value="all">전체 (모든 카테고리)</option>
+        <option value="인성">인성 및 품행</option>
+        <option value="사회성">사회성</option>
+        <option value="전공적합성">전공적합성 (지원동기·학과이해)</option>
+        <option value="전공지식">작업치료 전공 기초지식</option>
+        <option value="문제해결">문제해결능력 (상황형)</option>
+      </select>
+      <button class="btn" onclick="drawQuestion()">🎯 문제 뽑기</button>
+      <button class="btn secondary" onclick="toggleTip()">💡 답변 포인트 보기</button>
+    </div>
+    <div class="qbox">
+      <div class="qnum" id="qMeta">문제를 뽑아보세요</div>
+      <div class="qtext" id="qText">아래 [문제 뽑기] 버튼을 눌러 시작하세요.</div>
+      <div class="qtip" id="qTip"></div>
+    </div>
+    <p class="flash-hint" id="drawnCount"></p>
+  </div>
+
+  <div class="card">
+    <h2 class="section-title">문제 은행 전체 보기 (카테고리별)</h2>
+    <div id="fullBankList"></div>
+  </div>
+</section>
+
+<!-- ============ VIDEOS ============ -->
+<section class="tab" id="videos">
+  <div class="card">
+    <h2 class="section-title">🎬 학과 이해를 돕는 영상</h2>
+    <div class="video-grid">
+      <div><iframe src="https://www.youtube.com/embed/KIWLJu223Pw" allowfullscreen></iframe><p class="video-cap">작업치료학과 이해 영상 ①</p></div>
+      <div><iframe src="https://www.youtube.com/embed/HY_SlSCaCl4" allowfullscreen></iframe><p class="video-cap">작업치료학과 이해 영상 ②</p></div>
+    </div>
+  </div>
+
+  <div class="card">
+    <h2 class="section-title">🎥 면접 연습 본보기 영상</h2>
+    <p>실제 면접에 어떻게 답하고 준비하는지 감이 안 잡힐 때, 아래 영상을 보며 태도·말투·구성을 참고하세요.</p>
+    <div class="video-grid">
+      <div><iframe src="https://www.youtube.com/embed/Rr8LtL4N5kc" allowfullscreen></iframe><p class="video-cap">면접 연습 본보기 ①</p></div>
+      <div><iframe src="https://www.youtube.com/embed/tx72P-SiYxQ" allowfullscreen></iframe><p class="video-cap">면접 연습 본보기 ②</p></div>
+      <div><iframe src="https://www.youtube.com/embed/6DKnFRlINh8" allowfullscreen></iframe><p class="video-cap">면접 연습 본보기 ③</p></div>
+    </div>
+  </div>
+
+  <div class="card note">
+    📱 영상을 보고 그대로 따라 말해보고, 스마트폰으로 자신의 모습을 녹화해 비교해보세요. 표정·시선·속도·습관어(어, 음 등)를 스스로 점검하는 것이 가장 빠른 성장 방법입니다.
+  </div>
+</section>
+
+<!-- ============ CHECKLIST ============ -->
+<section class="tab" id="checklist">
+  <div class="card">
+    <h2 class="section-title">면접 준비 체크리스트</h2>
+    <div class="progress-wrap"><div class="progress-bar" id="progBar"></div></div>
+    <p id="progText" style="text-align:center;color:var(--muted);font-size:.85rem;"></p>
+    <div id="checklistItems"></div>
+  </div>
+</section>
+
+</main>
+
+<footer>
+  본 허브는 박도영 학생의 우송대학교 작업치료학과 면접 준비를 위해 제작되었습니다.<br>
+  자료 출처: 우송대 작업치료 면접 준비 매뉴얼 · 우송대작업치료학과 가이드 · 학과소개 PDF · 우송대학교 수시면접 기출/예상문제 (2018–2027학년도)
+</footer>
+
+<script>
+/* ---------------- NAV ---------------- */
+const navBtns = document.querySelectorAll('nav button');
+navBtns.forEach(b=>b.addEventListener('click',()=>goTab(b.dataset.tab)));
+function goTab(name){
+  document.querySelectorAll('.tab').forEach(t=>t.classList.remove('active'));
+  document.getElementById(name).classList.add('active');
+  navBtns.forEach(b=>b.classList.toggle('active', b.dataset.tab===name));
+  window.scrollTo({top:0,behavior:'smooth'});
+}
+
+/* ---------------- ACCORDION ---------------- */
+function toggleAcc(el){
+  el.parentElement.classList.toggle('open');
+}
+
+/* ---------------- DEPT FLASHCARDS ---------------- */
+const deptCards = [
+  {f:"작업치료의 정의는?", b:"신체적·정신적·발달적 장애로 일상에 제약을 받는 대상자에게 의미 있는 '작업'을 매개로 능동적 참여를 유도하는 보건의료 학문. 목표는 독립적 일상생활활동(ADL) 수행과 사회적 역할 복귀."},
+  {f:"작업치료와 물리치료의 차이는?", b:"물리치료는 관절·근력·보행 등 기본 신체기능 회복 중심, 작업치료는 미세 손기능·인지·연하재활·ADL훈련·보조공학까지 통합해 '삶의 독립성'을 회복시킴."},
+  {f:"WFOT는 무엇이고 우송대는 어떤 인증을 받았나?", b:"세계작업치료사연맹(WFOT). 우송대는 2008년 최초 인증 이후 2023~2029년 최장기 재인증을 획득해 해외 학위·교육과정이 동등하게 인정됨."},
+  {f:"우송대 작업치료학과와 미국 USC의 연계는?", b:"WFOT 인증을 기반으로 미국 6년제를 거치지 않고 USC 석사과정 직행 가능. 최고은 졸업생(16학번)이 미국 면허 취득 후 캘리포니아 요양시설에 취업한 대표 사례가 있음."},
+  {f:"솔파란 아동연구소는 무엇인가?", b:"2002년 설립된 부설기관으로 작업치료사·언어치료사·놀이미술치료사 등이 발달장애 아동을 정밀 진단·치료하며, 재학생에게 소아 작업치료 임상경험을 제공함."},
+  {f:"Sol-Hospital이란?", b:"중환자실(ICU), 소아중환자실(PICU), 수술실 등을 갖춘 최첨단 모의병원 시뮬레이션 센터로 현장 밀착형 실습을 진행함."},
+  {f:"ADL실(일상생활동작실)의 역할은?", b:"실제 가옥 환경(주방, 욕실 등)을 재현해 보바스 테이블, 전동 휠체어, 리프트 등 보조도구 훈련을 실습하는 공간."},
+  {f:"우송대가 협력하는 임상실습 병원 규모는?", b:"전국 41개 상급종합·대학병원(서울아산병원, 세브란스병원, 삼성서울병원, 분당서울대병원, 국립재활원 등)과 협력하여 4학년 1학기 현장실습을 진행."},
+  {f:"작업치료학과 내 융합 트랙은?", b:"사회복지사 융합 트랙(18학점)을 전공 내 내재화해 의료 지식과 복지 행정 역량을 겸비한 통섭형 전문가를 양성."},
+  {f:"감각발달재활사 자격은 어떻게 취득하나?", b:"보건복지부 공인 자격 기준 교과목(감각처리장애와 중재, 감각재활현장실습 등)이 정규 교육과정에 내재화되어 졸업과 동시에 취득 자격을 갖춤."},
+  {f:"작업치료사의 핵심 적성은?", b:"선택적 집중력, 정교한 손동작 통제력(Dexterity), 임상적 추론·문제해결력, 공감·소통 능력. Holland 흥미유형상 사회형(S)·탐구형(I)에 적합."},
+  {f:"작업치료 핵심 중재 영역 5가지는?", b:"① 일상생활활동(ADL/IADL) ② 활동분석(Activity Analysis) ③ 연하재활 및 인지재활 ④ 보조공학 ⑤ 소아 및 감각통합치료."},
+  {f:"활동분석(Activity Analysis)이란?", b:"특정 작업 수행에 필요한 신체적·인지적·감각적 요소를 세부 단계로 분해하고, 환자의 잔존 능력에 맞게 개조(Grading/Adaptation)하는 핵심 기법."},
+  {f:"우송대 작업치료학과 국가고시 성과는?", b:"제37회 국가고시 전국 수석 배출 포함, 매년 전국 평균을 상회하는 높은 합격률을 유지 (일부 연도 100% 합격 기록)."},
+  {f:"작업치료학과 1학년 주요 전공과목은?", b:"1학기: 작업치료학개론, 해부학 / 2학기: 의학용어, 생리학, 아동발달."},
+  {f:"작업치료학과 4학년 주요 교육내용은?", b:"1학기: 감각재활현장실습, 지역사회작업치료학임상실습, 작업치료학임상실습1~4 / 2학기: 졸업과제연구, 공중보건학, 장애관련법규및윤리."},
+  {f:"작업치료사 취득 가능 자격증은?", b:"작업치료사 국가면허증, 감각발달재활사, 직업평가및직업상담자격증, 인간공학기사, 보조공학사, 보조기및의지제작면허증 등."},
+  {f:"작업치료학과 졸업생 진로 분야는?", b:"의료기관(대학·재활·요양병원), 공무원(건강보험공단·국립재활원 등), 아동치료(발달센터), 창업(복지시설), 유학 및 해외취업(미국·캐나다·호주·일본)."}
+];
+let deptIdx = -1;
+let deptFlipped = false;
+function pickRandomDept(){ return Math.floor(Math.random()*deptCards.length); }
+function renderDeptCard(showBack){
+  const c = deptCards[deptIdx];
+  document.getElementById('deptFlash').textContent = showBack ? c.b : c.f;
+  document.getElementById('deptProgress').textContent = (deptIdx+1)+' / '+deptCards.length+' 카드 · 클릭하면 답이 보입니다';
+}
+function flipDeptCard(){ deptFlipped = !deptFlipped; renderDeptCard(deptFlipped); }
+function nextDeptCard(){ deptIdx = (deptIdx+1) % deptCards.length; deptFlipped=false; renderDeptCard(false); }
+function shuffleDeptCard(){ deptIdx = pickRandomDept(); deptFlipped=false; renderDeptCard(false); }
+nextDeptCard();
+
+/* home flashcard = random dept card, changes per page load */
+const homeCardIdx = pickRandomDept();
+let homeFlipped = false;
+function flipHomeCard(){
+  homeFlipped = !homeFlipped;
+  const c = deptCards[homeCardIdx];
+  document.getElementById('homeFlash').textContent = homeFlipped ? c.b : c.f;
+}
+document.getElementById('homeFlash').textContent = deptCards[homeCardIdx].f;
+
+/* ---------------- QUESTION BANK ---------------- */
+const bank = [
+  // 인성 및 품행
+  {cat:"인성", q:"자신의 장점과 단점은 무엇이며, 단점을 극복하기 위해 어떤 노력을 하고 있나요?", tip:"단점을 인정하고, 구체적 개선 노력과 그 과정에서 얻은 배움을 연결해 답하세요."},
+  {cat:"인성", q:"고교 시절 가장 기억에 남는 봉사활동은 무엇이며, 그 경험에서 느낀 점은?", tip:"장애인복지관·요양원 등 보건 관련 봉사경험을 작업치료의 공감·소통 역량과 연결하세요."},
+  {cat:"인성", q:"본인이 가장 힘들었던 경험과 이를 극복한 방법을 말해보세요.", tip:"PREP 기법으로 결론-이유-경험-포부 순으로 구성하세요."},
+  {cat:"인성", q:"자신의 가치관은 무엇이며, 그 가치관이 작업치료사로서의 삶에 어떻게 연결되나요?", tip:"환자 중심, 성실성, 공감 등 작업치료사에게 요구되는 가치와 연결하세요."},
+  {cat:"인성", q:"학교생활 중 규칙이나 지시에 따르기 어려웠던 경험이 있다면 어떻게 대처했나요?", tip:"갈등 상황에서도 원만하게 해결한 사례를 통해 성실성과 융통성을 보여주세요."},
+  {cat:"인성", q:"존경하는 인물이 있다면 누구이며, 그 이유는 무엇인가요?", tip:"가능하면 의료·복지 분야 인물이나 그 정신을 작업치료와 연결하세요."},
+  {cat:"인성", q:"마지막으로 하고 싶은 말이 있다면 자유롭게 말해보세요.", tip:"면접 중 부족했던 답변을 보완하거나 열정을 인상 깊게 전달할 기회로 활용하세요."},
+
+  // 사회성
+  {cat:"사회성", q:"조별과제에서 팀원이 협조하지 않을 때 어떻게 대처하겠습니까?", tip:"비난보다 대화와 역할 재분배, 공동목표 상기 등 협력적 해결책을 제시하세요."},
+  {cat:"사회성", q:"단체생활에서 가장 중요하다고 생각하는 것은 무엇이며, 그 이유는?", tip:"배려, 소통, 책임감 등을 예시 경험과 함께 제시하세요."},
+  {cat:"사회성", q:"리더 역할을 수행한 경험이 있다면 소개해 주세요.", tip:"작업치료 현장에서도 다학제 협업이 중요하므로 협업 리더십을 강조하세요."},
+  {cat:"사회성", q:"친구나 동료와 의견이 달랐던 경험과 해결 과정을 말해보세요.", tip:"상대 입장 이해 → 절충안 도출 과정을 구체적으로 설명하세요."},
+  {cat:"사회성", q:"타인을 배려하거나 도와준 경험이 있다면 이야기해 주세요.", tip:"환자·보호자를 대하는 작업치료사의 공감 능력과 연결지어 답하세요."},
+
+  // 전공적합성 (지원동기·학과이해)
+  {cat:"전공적합성", q:"작업치료학과에 지원한 동기와 왜 우송대학교여야 하는지 말씀해 주세요.", tip:"① 작업치료의 인류애적 매력 ② WFOT 인증·USC 연계 등 우송대 차별점 ③ 감각발달재활사·사회복지사 트랙 등 실습 인프라를 언급하세요."},
+  {cat:"전공적합성", q:"물리치료와 작업치료의 차이점을 설명하고, 작업치료만의 매력이 무엇이라 생각하나요?", tip:"물리치료=신체기능 회복 중심 / 작업치료=일상 자립과 삶의 의미 회복 중심으로 대비하세요."},
+  {cat:"전공적합성", q:"우송대학교 입학 후 학업 계획과 졸업 후 진로 포부는 무엇인가요?", tip:"학년별 커리큘럼(해부학→신경과학→임상실습)에 맞춰 구체적으로 답하세요."},
+  {cat:"전공적합성", q:"우송대 작업치료학과의 특장점을 아는 대로 설명해 보세요.", tip:"WFOT 재인증, 41개 병원 실습망, 솔파란 아동연구소, Sol-Hospital 등을 언급하세요."},
+  {cat:"전공적합성", q:"본교 작업치료학과의 교육목표는 무엇이라고 알고 있나요?", tip:"인성교육을 통한 전인적 작업치료사 형성, 현장중심형 인재 양성, 근거기반 실무·연구 역량을 갖춘 리더 양성입니다."},
+  {cat:"전공적합성", q:"작업치료사가 되기 위해 어떤 노력을 해왔는지 구체적으로 말해보세요.", tip:"복지관 봉사, 관련 동아리, 병원 견학, 관련 도서(예: 잠수종과 나비) 등을 근거로 답하세요."},
+  {cat:"전공적합성", q:"해외 취업이나 WFOT 인증에 대해 알고 있는 대로 설명해 보세요.", tip:"국내 WFOT 인증 학교 졸업 시 해외 대학원 진학 및 면허 취득이 가능함을 설명하세요."},
+  {cat:"전공적합성", q:"작업치료사로서 미래 전망을 어떻게 생각하나요?", tip:"고령화, 만성질환·발달장애 증가로 수요가 지속 확대되는 추세를 근거로 답하세요."},
+  {cat:"전공적합성", q:"작업치료학과의 감각발달재활사·사회복지사 트랙에 대해 아는 대로 설명해 보세요.", tip:"정규 교육과정에 내재화되어 졸업과 동시에 자격 취득이 가능한 점을 강조하세요."},
+
+  // 전공지식(전공기초)
+  {cat:"전공지식", q:"일상생활활동(ADL)과 도구적 일상생활활동(IADL)의 차이를 설명해 보세요.", tip:"ADL=식사·착탈의·위생 등 기본활동 / IADL=금전관리·약물복용·교통이용 등 도구적 활동."},
+  {cat:"전공지식", q:"활동분석(Activity Analysis)이 왜 작업치료에서 중요한가요?", tip:"작업을 신체적·인지적·감각적 요소로 분해해 환자의 잔존 능력에 맞게 개조(Grading)하는 핵심 기법임을 설명하세요."},
+  {cat:"전공지식", q:"감각통합치료란 무엇이며 어떤 대상에게 적용되나요?", tip:"발달지연, 뇌성마비, 자폐스펙트럼, ADHD 아동의 감각처리장애 평가 및 중재에 적용됨."},
+  {cat:"전공지식", q:"연하재활(삼킴장애 치료)은 어떤 환자에게 필요한가요?", tip:"뇌손상·뇌졸중 환자의 삼킴 기능 평가와 안전한 식사 훈련에 필요함을 설명하세요."},
+  {cat:"전공지식", q:"보조공학(Assistive Technology)의 역할과 예시를 들어보세요.", tip:"맞춤형 휠체어, 자세유지장치, 배리어프리 주거환경 개조 등을 예시로 드세요."},
+  {cat:"전공지식", q:"신경가소성(Neuroplasticity)이 작업치료에서 왜 중요한가요?", tip:"뇌졸중·외상성 뇌손상 환자의 기능 회복 원리로 신경가소성을 활용한 재활을 설명하세요."},
+  {cat:"전공지식", q:"작업치료사가 갖추어야 할 핵심 적성은 무엇이라고 생각하나요?", tip:"선택적 집중력, 정교한 손동작 통제력, 공감·소통 능력, 임상적 추론력을 언급하세요."},
+
+  // 문제해결능력(상황형)
+  {cat:"문제해결", q:"환자가 치료에 협조하지 않고 거부한다면 어떻게 대응하겠습니까?", tip:"환자의 심리 상태를 먼저 이해하고 신뢰를 쌓는 접근을 우선하세요."},
+  {cat:"문제해결", q:"조별 과제에서 팀원 간 능력 차이가 크게 날 때 어떻게 하겠습니까?", tip:"역할 재분배와 상호 보완, 팀 전체의 성장을 목표로 한 해결책을 제시하세요."},
+  {cat:"문제해결", q:"입학 후 전공이 생각했던 것과 다르다고 느껴진다면 어떻게 하겠습니까?", tip:"성급한 포기보다 학과 상담, 실습 경험을 통한 재확인 과정을 언급하세요."},
+  {cat:"문제해결", q:"보호자가 치료 방향에 대해 강하게 이의를 제기한다면 어떻게 대처하겠습니까?", tip:"경청과 공감을 우선하고, 전문적 근거를 바탕으로 설득하는 태도를 보이세요."},
+  {cat:"문제해결", q:"실습 중 예상치 못한 어려운 상황(예: 환자 안전 문제)이 발생했다면 어떻게 하겠습니까?", tip:"안전을 최우선으로 하고, 즉시 지도교수·의료진에게 보고하는 절차를 언급하세요."},
+  {cat:"문제해결", q:"목표한 성과가 나오지 않아 좌절했던 경험과 그 극복 방법을 말해보세요.", tip:"실패를 학습 기회로 재구성하고 구체적 개선 행동을 제시하세요."},
+  {cat:"문제해결", q:"과제가 몰려 시간이 부족한 상황이라면 어떻게 우선순위를 정하겠습니까?", tip:"중요도·마감시한 기준의 우선순위 설정 방법을 구체적으로 설명하세요."}
+];
+
+let remaining = [];
+function resetRemaining(cat){
+  remaining = bank.filter(q=> cat==='all' || q.cat===cat).map((_,i)=>i);
+}
+let currentFiltered = [];
+let currentQ = null;
+
+function drawQuestion(){
+  const cat = document.getElementById('catSelect').value;
+  currentFiltered = bank.filter(q=> cat==='all' || q.cat===cat);
+  if(currentFiltered.length===0){ return; }
+  if(!window._remainIdx || window._remainCat !== cat || window._remainIdx.length===0){
+    window._remainIdx = currentFiltered.map((_,i)=>i);
+    window._remainCat = cat;
+  }
+  const pick = Math.floor(Math.random()*window._remainIdx.length);
+  const qIdx = window._remainIdx.splice(pick,1)[0];
+  currentQ = currentFiltered[qIdx];
+  document.getElementById('qMeta').textContent = '['+currentQ.cat+'] 남은 문제: '+window._remainIdx.length+' / '+currentFiltered.length;
+  document.getElementById('qText').textContent = currentQ.q;
+  document.getElementById('qTip').style.display='none';
+  document.getElementById('qTip').textContent = '💡 답변 포인트: '+currentQ.tip;
+  document.getElementById('drawnCount').textContent = '카테고리를 바꾸면 새로운 문제 세트로 초기화됩니다.';
+}
+function toggleTip(){
+  const t = document.getElementById('qTip');
+  t.style.display = (t.style.display==='none') ? 'block' : 'none';
+}
+document.getElementById('catSelect').addEventListener('change', ()=>{ window._remainIdx=null; });
+
+/* full bank listing */
+const bankListEl = document.getElementById('fullBankList');
+const catNames = {"인성":"인성 및 품행","사회성":"사회성","전공적합성":"전공적합성 (지원동기·학과이해)","전공지식":"작업치료 전공 기초지식","문제해결":"문제해결능력 (상황형)"};
+Object.keys(catNames).forEach(cat=>{
+  const div = document.createElement('div');
+  div.className='acc';
+  const items = bank.filter(q=>q.cat===cat);
+  div.innerHTML = `<div class="acc-h" onclick="toggleAcc(this)">${catNames[cat]} (${items.length}문항) <span class="arrow">▾</span></div>
+    <div class="acc-b"><ul>${items.map(q=>`<li>${q.q}</li>`).join('')}</ul></div>`;
+  bankListEl.appendChild(div);
+});
+
+/* ---------------- PREP SAVE ---------------- */
+function savePrep(){
+  const data = {
+    p: document.getElementById('prepP').value,
+    r: document.getElementById('prepR').value,
+    e: document.getElementById('prepE').value,
+    p2: document.getElementById('prepP2').value
+  };
+  localStorage.setItem('otPrep', JSON.stringify(data));
+  const msg = document.getElementById('prepSaved');
+  msg.style.display='block';
+  setTimeout(()=>msg.style.display='none', 1800);
+}
+function clearPrep(){
+  ['prepP','prepR','prepE','prepP2'].forEach(id=>document.getElementById(id).value='');
+  localStorage.removeItem('otPrep');
+}
+(function loadPrep(){
+  const saved = localStorage.getItem('otPrep');
+  if(saved){
+    const d = JSON.parse(saved);
+    document.getElementById('prepP').value = d.p||'';
+    document.getElementById('prepR').value = d.r||'';
+    document.getElementById('prepE').value = d.e||'';
+    document.getElementById('prepP2').value = d.p2||'';
+  }
+})();
+
+/* ---------------- CHECKLIST ---------------- */
+const checklist = [
+  "면접 개요 및 3대 평가 포인트(열정·인성·적극성) 이해하기",
+  "면접 복장 및 준비물(수험표, 신분증) 점검하기",
+  "PREP 기법으로 지원동기 답변 작성하기",
+  "PREP 기법으로 학업계획·진로포부 답변 작성하기",
+  "작업치료 vs 물리치료 차이 설명 연습하기",
+  "우송대 학과 차별점(WFOT, USC연계, 41개 병원망) 암기하기",
+  "학과 이해 플래시카드 전체 1회독 하기",
+  "면접 문제 뱅크에서 인성 카테고리 5문항 이상 연습하기",
+  "면접 문제 뱅크에서 전공적합성 카테고리 5문항 이상 연습하기",
+  "면접 문제 뱅크에서 문제해결 카테고리 5문항 이상 연습하기",
+  "본보기 영상 시청 후 따라 말해보기",
+  "스마트폰으로 본인 답변 녹화 후 표정·어조 점검하기",
+  "가족/친구와 모의면접 1회 이상 진행하기",
+  "돌발 상황(질문 재요청, 모르는 질문) 대처법 숙지하기",
+  "마지막 하고 싶은 말 준비하기"
+];
+const clEl = document.getElementById('checklistItems');
+checklist.forEach((item,i)=>{
+  const div = document.createElement('div');
+  div.className='check-item';
+  div.innerHTML = `<input type="checkbox" id="chk${i}"><label for="chk${i}">${item}</label>`;
+  clEl.appendChild(div);
+});
+function loadChecklist(){
+  const saved = JSON.parse(localStorage.getItem('otChecklist')||'{}');
+  checklist.forEach((_,i)=>{
+    const cb = document.getElementById('chk'+i);
+    cb.checked = !!saved[i];
+    cb.addEventListener('change', updateChecklist);
+  });
+  updateProgress();
+}
+function updateChecklist(){
+  const state = {};
+  checklist.forEach((_,i)=>{ state[i] = document.getElementById('chk'+i).checked; });
+  localStorage.setItem('otChecklist', JSON.stringify(state));
+  updateProgress();
+}
+function updateProgress(){
+  const total = checklist.length;
+  let done = 0;
+  checklist.forEach((_,i)=>{ if(document.getElementById('chk'+i).checked) done++; });
+  const pct = Math.round(done/total*100);
+  document.getElementById('progBar').style.width = pct+'%';
+  document.getElementById('progText').textContent = `${done} / ${total} 완료 (${pct}%)`;
+}
+loadChecklist();
+</script>
+
+<script id="lockScript">
+(function(){
+  var CORRECT_PW = "9220";
+  var STORAGE_KEY = "wsu_ot_interview_hub_unlocked";
+
+  function unlock(){
+    document.body.classList.remove('locked');
+    var overlay = document.getElementById('lockOverlay');
+    if(overlay) overlay.remove();
+  }
+
+  try{
+    if(localStorage.getItem(STORAGE_KEY) === "true"){
+      unlock();
+      return;
+    }
+  }catch(e){}
+
+  document.body.classList.add('locked');
+
+  function tryUnlock(){
+    var input = document.getElementById('lockInput');
+    var err = document.getElementById('lockError');
+    if(input.value === CORRECT_PW){
+      try{ localStorage.setItem(STORAGE_KEY, "true"); }catch(e){}
+      unlock();
+    }else{
+      err.textContent = "비밀번호가 올바르지 않습니다.";
+      input.value = "";
+      input.focus();
+    }
+  }
+
+  document.getElementById('lockSubmit').addEventListener('click', tryUnlock);
+  document.getElementById('lockInput').addEventListener('keydown', function(e){
+    if(e.key === 'Enter') tryUnlock();
+  });
+  window.addEventListener('DOMContentLoaded', function(){
+    var input = document.getElementById('lockInput');
+    if(input) input.focus();
+  });
+})();
+</script>
+</body>
+</html>
